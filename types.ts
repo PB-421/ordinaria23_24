@@ -6,3 +6,4 @@ export type ContactModel = {
     phone: string,
     country: string
 }
+

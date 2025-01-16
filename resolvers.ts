@@ -2,6 +2,7 @@ import { Collection } from "mongodb";
 import { ContactModel } from "./types.ts";
 import { getCountrySpec, getTime } from "./apiFunction.ts";
 import {ObjectId} from "mongodb"
+import { GraphQLError } from "graphql";
 
 
 type Context = {
@@ -43,6 +44,9 @@ export const resolvers = {
                 }
         },
         updateContact: async (_:unknown, args: {id: string, name: string | null, phone: string | null},context:Context):Promise<ContactModel | null> => {
+            if(!args.name && !args.phone){
+                throw new GraphQLError("No se ha introducido ningun argumento")
+            }
             const existe = await context.collectionContacts.findOne({_id: new ObjectId(args.id)})
             if(!existe){
                 return null
@@ -50,8 +54,8 @@ export const resolvers = {
             let country = null
             if(args.phone){
                 const existeT = await context.collectionContacts.findOne({phone: args.phone})
-                if(existeT){
-                    return null
+                if(existeT && existeT._id.toString() !== args.id){ //Si el telef existe y no soy
+                    country = null
                 }
                 const countrySpec = await getCountrySpec(args.phone)
 

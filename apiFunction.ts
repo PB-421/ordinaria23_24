@@ -1,8 +1,9 @@
+import { GraphQLError } from "graphql";
 
 export async function getCountrySpec(phone: string):Promise<string[]> {
     const API_KEY = Deno.env.get("API_KEY");
     if (!API_KEY) {
-        throw new Error("API_KEY not found");
+        throw new GraphQLError("API_KEY not found");
     }
     const url = "https://api.api-ninjas.com/v1/validatephone?number=" + phone;
     const data = await fetch(url, {
@@ -12,11 +13,11 @@ export async function getCountrySpec(phone: string):Promise<string[]> {
   });
   if (data.status !== 200) {
     console.error("Error:", data.status, data.statusText);
-    throw new Error("Error en el telefono");
+    throw new GraphQLError("Error en el telefono");
   }
   const response = await data.json()
   if(!response.is_valid){
-    throw new Error("Telefono no valido");
+    throw new GraphQLError("Telefono no valido");
   }
 
   const splited = response.timezones[0].split('/')
@@ -35,7 +36,7 @@ export async function getCountrySpec(phone: string):Promise<string[]> {
 export async function getTime(timezone:string):Promise<string> {
     const API_KEY = Deno.env.get("API_KEY");
     if (!API_KEY) {
-        throw new Error("API_KEY not found");
+        throw new GraphQLError("API_KEY not found");
     }
   const url = "https://api.api-ninjas.com/v1/worldtime?timezone=" + timezone;
   const data = await fetch(url, {
@@ -45,7 +46,7 @@ export async function getTime(timezone:string):Promise<string> {
   });
   if (data.status !== 200) {
     console.error("Error:", data.status, data.statusText);
-    throw new Error("Error");
+    throw new GraphQLError("Error");
   }
   const response = await data.json();
   const hour:string = response.hour

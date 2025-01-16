@@ -16,8 +16,8 @@ export const schema = `#graphql
     }
 
     type Mutation {
-        addContact(name: String!,phone: String!): Contact
-        updateContact(id: ID!,name: String, phone: String): Contact
+        addContact(name: String!,phone: String!): Contact #En el add, lanzamos un error cuando haya algo que no nos cuadre
+        updateContact(id: ID!,name: String, phone: String): Contact # en el update, mejor lanzamos un error
         deleteContact(id: ID!): Boolean
     }
 

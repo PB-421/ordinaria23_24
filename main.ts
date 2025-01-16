@@ -6,7 +6,7 @@ import { resolvers } from "./resolvers.ts";
 import { ContactModel } from "./types.ts";
 
 const urlMongo = Deno.env.get("MONGO_URL")
-
+//recordar que en graphql, usamos el throw new graphqlerror
 if(!urlMongo){
   console.error("url de mongo no encontrada")
   Deno.exit(-1)

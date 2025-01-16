@@ -3,7 +3,8 @@
   "specifiers": {
     "jsr:@std/assert@1": "1.0.9",
     "jsr:@std/internal@^1.0.5": "1.0.5",
-    "npm:@apollo/server@^4.11.2": "4.11.2_graphql@16.10.0",
+    "npm:@apollo/server@^4.11.3": "4.11.3_graphql@16.10.0",
+    "npm:graph@0.2": "0.2.0",
     "npm:graphql@^16.10.0": "16.10.0",
     "npm:mongodb@^6.12.0": "6.12.0"
   },
@@ -52,8 +53,8 @@
         "graphql"
       ]
     },
-    "@apollo/server@4.11.2_graphql@16.10.0": {
-      "integrity": "sha512-WUTHY7DDek8xAMn4Woa9Bl8duQUDzRYQkosX/d1DtCsBWESZyApR7ndnI5d6+W4KSTtqBHhJFkusEI7CWuIJXg==",
+    "@apollo/server@4.11.3_graphql@16.10.0": {
+      "integrity": "sha512-mW8idE2q0/BN14mimfJU5DAnoPHZRrAWgwsVLBEdACds+mxapIYxIbI6AH4AsOpxfrpvHts3PCYDbopy1XPW1g==",
       "dependencies": [
         "@apollo/cache-control-types",
         "@apollo/server-gateway-interface",
@@ -88,8 +89,8 @@
         "@apollo/protobufjs"
       ]
     },
-    "@apollo/utils.createhash@2.0.1": {
-      "integrity": "sha512-fQO4/ZOP8LcXWvMNhKiee+2KuKyqIcfHrICA+M4lj/h/Lh1H10ICcUtk6N/chnEo5HXu0yejg64wshdaiFitJg==",
+    "@apollo/utils.createhash@2.0.2": {
+      "integrity": "sha512-UkS3xqnVFLZ3JFpEmU/2cM2iKJotQXMoSTgxXsfQgXLC5gR1WaepoXagmYnPSA7Q/2cmnyTYK5OgAgoC4RULPg==",
       "dependencies": [
         "@apollo/utils.isnodelike",
         "sha.js"
@@ -282,8 +283,8 @@
         "undici-types"
       ]
     },
-    "@types/qs@6.9.17": {
-      "integrity": "sha512-rX4/bPcfmvxHDv0XjfJELTTr+iB+tn032nPILqHm5wbthUUUuVtNGGqzhya9XUxjTP8Fpr0qYgSZZKxGY++svQ=="
+    "@types/qs@6.9.18": {
+      "integrity": "sha512-kK7dgTYDyGqS+e2Q4aK9X3D7q234CIZ1Bv0q/7Z5IwRDoADNU81xXJK/YVyLbLTZCoIwUoDoffFeF+p/eIklAA=="
     },
     "@types/range-parser@1.2.7": {
       "integrity": "sha512-hKormJbkJqzQGhziax5PItDUTMAM9uE2XXQmM37dyd4hVM+5aVl7oVxMVUiVQn2oCQFN/LKCZdvSM0pFRqbSmQ=="
@@ -434,8 +435,8 @@
     "es-errors@1.3.0": {
       "integrity": "sha512-Zf5H2Kxt2xjTvbJvP2ZWLEICxA6j+hAmMzIlypy4xcBg1vKVnx89Wy0GbS+kf5cwCVFFzdCFh2XSCFNULS6csw=="
     },
-    "es-object-atoms@1.0.0": {
-      "integrity": "sha512-MZ4iQ6JwHOBQjahnjwaC1ZtIBH+2ohjamzAO3oaHcXYup7qxjF2fixyH+Q71voWHeOkI2q/TnJao/KfXYIZWbw==",
+    "es-object-atoms@1.1.1": {
+      "integrity": "sha512-FGgH2h8zKNim9ljj7dankFPcICIK9Cp5bm+c2gQSYePhpaG5+esrLODihIorn+Pe6FGJzWhXQotPv73jTaldXA==",
       "dependencies": [
         "es-errors"
       ]
@@ -511,23 +512,33 @@
     "function-bind@1.1.2": {
       "integrity": "sha512-7XHNxH7qX9xG5mIwxkhumTox/MIRNcOgDrxWsMt2pAr23WHp6MrRlN7FBSFpCpr+oVO0F744iUgR82nJMfG2SA=="
     },
-    "get-intrinsic@1.2.6": {
-      "integrity": "sha512-qxsEs+9A+u85HhllWJJFicJfPDhRmjzoYdl64aMWW9yRIJmSyxdn8IEkuIM530/7T+lv0TIHd8L6Q/ra0tEoeA==",
+    "get-intrinsic@1.2.7": {
+      "integrity": "sha512-VW6Pxhsrk0KAOqs3WEd0klDiF/+V7gQOpAvY1jVU/LHmaD/kQO4523aiJuikX/QAKYiW6x8Jh+RJej1almdtCA==",
       "dependencies": [
         "call-bind-apply-helpers",
-        "dunder-proto",
         "es-define-property",
         "es-errors",
         "es-object-atoms",
         "function-bind",
+        "get-proto",
         "gopd",
         "has-symbols",
         "hasown",
         "math-intrinsics"
       ]
     },
+    "get-proto@1.0.1": {
+      "integrity": "sha512-sTSfBjoXBp89JvIKIefqw7U2CCebsc74kiY6awiGogKtoSGbgjYE/G/+l9sF3MWFPNc9IcoOC4ODfKHfxFmp0g==",
+      "dependencies": [
+        "dunder-proto",
+        "es-object-atoms"
+      ]
+    },
     "gopd@1.2.0": {
       "integrity": "sha512-ZUKRh6/kUFoAiTAtTYPZJ3hw9wNxx+BIBOijnlG9PnrJsCcSjs1wyyD6vJpaYtgnzDrKYRSqf3OO6Rfa93xsRg=="
+    },
+    "graph@0.2.0": {
+      "integrity": "sha512-JABlOLcRKDylHil7DonITryjN8EyMwjzfOVwuUq0UaOK+fnR+cYJ2j5dS4YP+d1QPXQ9LNdL1yYJA8I1B77E1w=="
     },
     "graphql@16.10.0": {
       "integrity": "sha512-AjqGKbDGUFRKIRCP9tCKiIGHyriz2oHEbPIbEtcSLSs4YjReZOIPQQWek4+6hjw62H9QShXHyaGivGiYVLeYFQ=="
@@ -575,8 +586,8 @@
     "lru-cache@7.18.3": {
       "integrity": "sha512-jumlc0BIUrS3qJGgIkWZsyfAM7NCWiBcCDhnd+3NNM5KbBmLTgHVfWBcg6W+rLUsIpzpERPsvwUP7CckAQSOoA=="
     },
-    "math-intrinsics@1.0.0": {
-      "integrity": "sha512-4MqMiKP90ybymYvsut0CH2g4XWbfLtmlCkXmtmdcDCxNB+mQcu1w/1+L/VD7vi/PSv7X2JYV7SCcR+jiPXnQtA=="
+    "math-intrinsics@1.1.0": {
+      "integrity": "sha512-/IXtbwEk5HTPyEwyKX6hGkYXxM9nbj64B+ilVJnC/R6B0pH5G4V3b0pVbL7DBj4tkhBAppbQUlf6F6Xl9LHu1g=="
     },
     "media-typer@0.3.0": {
       "integrity": "sha512-dq+qelQ9akHpcOl/gUVRTxVIOkAJ1wR3QAvb4RsVjS8oVoFjDGTc679wJYmUmknUF5HwMLOgb5O+a3KxfWapPQ=="
@@ -842,7 +853,8 @@
   "workspace": {
     "dependencies": [
       "jsr:@std/assert@1",
-      "npm:@apollo/server@^4.11.2",
+      "npm:@apollo/server@^4.11.3",
+      "npm:graph@0.2",
       "npm:graphql@^16.10.0",
       "npm:mongodb@^6.12.0"
     ]
